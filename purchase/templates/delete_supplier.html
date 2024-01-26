@@ -1,0 +1,39 @@
+{% extends 'layout.html' %}{% load static %}
+{% block title %}delete Article reference N° : {{supplier.supplier_number}}{% endblock title %}
+
+{% block content %}
+<div class="information-delete">
+    <div class="description">
+        <h3>voulez supprimer le Fournisseur {{supplier.supplier_number}} ?!</h3>
+               
+               <div>
+               <p style="border: 1px solid gray; width: 25%; padding:10px;">
+<small>
+    Supplier : {{supplier.supplier}}<br>reference Supplier : {{supplier.supplier_number}} <br>
+    N° Identifiant Unique : {{supplier.nui}}<br>
+    Registre Commerce : {{supplier.rc}}
+    <br>
+    Phone : {{supplier.phone}}<br>
+    Email : {{supplier.mail}}
+    <br>
+    Country : {{supplier.country}}
+    <br>
+    Town : {{supplier.town}}
+</small>
+               </p>
+               </div>
+                   
+           <span>Cette Action est Irreversible !!</span>
+     
+        
+        <form action="" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-delete">Supprimer</button>
+            <a type="button" class="btn btn-cancel" href="{% url 'list_supplier' %}">Annuler</a>
+        </form>
+    </div>
+</div>
+    
+{% endblock content %}
+    
+    

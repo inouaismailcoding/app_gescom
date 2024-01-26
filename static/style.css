@@ -1,0 +1,254 @@
+
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+}
+.container{
+    margin: 10px;
+    justify-content: center;
+    
+}
+/* START NAV BAR STYLE */
+.navbar{
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin: 10px;
+    width: 98%;
+    background-color: #444;
+    border-radius: 25px ;
+}
+.list{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    margin-left: 10px;
+    color: white;
+    
+
+}
+.list li{
+    padding: 10px;
+    margin-left: 10px;
+    
+}
+.list li a {
+    color: white;
+    font-size: 12px;
+}
+.list li a:hover{
+    color: blue;
+}
+/* END NAV BAR STYLE */
+
+/* START CONTENT STYLE */
+
+.container{
+    text-decoration: none;
+    background-color: #b2b4c4;
+}
+
+.content {
+    padding: 10px;
+}
+.content h1{
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: 0 0 5px #f1a4a4;
+}
+.message{
+    border-radius:25px;
+    font-size:14px;
+    font-weight: 600;
+    text-align: center;
+    background:#3bee59;
+    color:#fff;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+}
+.message span{
+    text-align:center;
+}
+
+.div-btn{
+    margin: 15px;
+}
+.btn {
+    padding: 10px;
+    margin: 10px;
+    height: 30px;
+    width: 60px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.btn:hover{
+    background-color: beige;
+    color: #444;
+    border: 2px solid #444;
+}
+.btn-create{
+    background-color: #1e84f8;
+    color: white;
+}
+.btn-edit{
+    background-color: #98f5bc;
+    color: white;
+}
+.btn-info{
+    background-color: #07e250;
+    color: white;
+}
+.btn-delete{
+    background-color: #f81e1e;
+    color: white;
+}
+.btn-cancel{
+    background-color: #444;
+    color: white;
+}
+.btn-back{
+    background-color: #5bcace;
+    color: white;
+}
+.input{
+    font-size: 14px;
+    width: 220px;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    height: 25px;
+    text-align: center;
+}
+.input-search:hover{
+    width: 270px;
+    height: 30px;
+    border: 0.5px solid #07a4e2;
+}
+
+.divider{
+    margin: 2px;
+    height: 1px;
+    background-color: #1873d3;
+    
+}
+#download-type{
+    font-size: x-small;
+
+}
+.table{
+    margin-top: 10px;
+}
+.table .thead{
+    text-transform: capitalize;
+    font-size: 14px;
+}
+.table .thead tr th{
+    border: 1px solid #7a91aa;
+    border-radius: 8px;
+    background-color: #7a91aa;
+    padding: 5px;
+    text-align: center;
+    justify-content: center;
+}
+.table .tbody{
+    font-size: 13px;
+}
+.table .tbody tr td{
+    border: 1px solid #b2ced6;
+    border-radius: 8px;
+    background-color: #dfe1e2;
+    padding: 2px 5px 2px 5px;
+    text-align: center;
+    justify-content: center;
+}
+.a{
+    font-size: 18px;
+    border: none;
+    margin: 5px;
+    padding: 5px;
+    justify-content: center;
+    align-items: center;
+}
+.a-info{
+    color: #08c949;
+}
+.a-delete{
+    color: #f81e1e; 
+}
+.a-edit{
+    color: #1e84f8; 
+}
+.label{
+    font-weight: 600;
+    font-size: 14px;
+}
+.label-select{
+    display: block;
+    font-size: 12px;
+}
+
+.select{
+    font-size: small;
+    text-align: center;
+    width: 90px;
+}
+.d-flex{
+    margin: 10px 10px 0 50px;
+    display: grid;
+    grid-template-columns: repeat(2,320px);
+    align-items: center;
+}
+.div-flex div{
+    position: relative;
+    justify-content: right;
+    align-items: center;
+}
+.right{
+    position: relative;
+    justify-content: right;
+    
+    
+    
+}
+.span-file{
+    font-size: 18px;
+    background-color: #fff;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+}
+.fa-file-excel{
+    color: #07e250;
+}
+.fa-file-csv{
+    color: #1873d3;
+}
+.fa-file-pdf{
+    color: #d31860;
+}
+.span{
+    padding: 3px;
+    font-size: 14px;
+}
+.span-search{
+    font-size: 20px;
+    color: #07a4e2;
+}
+.download-type-file{
+    font-size: 10px;
+    font-weight: 600;
+    color: #1e84f8;
+}
+.content-table{
+    padding: 5px;
+}

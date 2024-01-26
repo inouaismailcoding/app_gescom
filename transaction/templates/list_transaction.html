@@ -1,0 +1,88 @@
+{% extends 'layout.html' %} {% load static %}
+{% block title %}list Transaction{% endblock title %}
+{% block content %}
+    <div class="content">
+        <h1>PAGE DES Transaction</h1>  
+        {% if messages %}
+        <div class="message">
+            {% for message in messages %}
+                <span>{{message}}</span>
+            {% endfor %}
+        </div>
+        {% endif %}
+        <div class="divider"></div>
+        <div class="divider"></div>   
+        <a class="btn" href="{% url 'add_transaction' %}" type="Button">create Transaction</a>
+        <div class="divider"></div>
+        <div class="divider"></div>   
+        
+        <div class="content-table">
+            <div class="d-flex">
+                <div>
+                        
+                    <input type="search" name="search" id="search" class="input input-search">
+                    <a href=""><span class="fa fa-search span span-search" btn-search></span></a>
+                </div>
+                <div class="div-type-file-download right">
+                    <form action="" method="get" class="form" id="form-select-type-file-download">
+                        {% csrf_token %}
+                   <label for="" class="label label-select">choose file to download</label>
+                   <select name="format" id="select-type-download-file" class="select select-type-download-file">
+                       <option value="">----- </option>
+                       <option value="excel"><span class="fa fa-file-excel span"></span>Excel File</option>
+                       <option value="csv"><span class="fa fa-file-csv span"></span>CSV File</option>
+                       <option value="json"><span class="fa fa-file-Json span"></span>JSON File</option>
+                   </select>
+                   <span class="fa fa-file-excel span span-file"></span>
+                    <span class="fa fa-file-csv span span-file"></span>
+                    <span class="fa fa-file-pdf span span-file"></span>
+                   <div>
+                       <button href="" class="a download download-type-file" id="download" type="submit" style="display:none;"><span class="fa fa-download span" ></span>download <i id="download-type"></i></button>
+                   </div>
+                    </form>
+                   
+                </div>
+            </div>
+            <table class="table" id="table">
+                <thead class="thead">
+                    <tr>
+                        <th>#</th>
+                        <th>ref Transaction</th>
+                        <th>date</th>
+                        <th>Mouvement</th>
+                        <th>Intervenant</th>
+                        <th>Quantity</th>
+                        <th>User</th>
+                        <th>Options</th>
+                        <!--<th>Image</th>-->
+                    </tr>
+                </thead>
+                <tbody class="tbody" id="tbody">
+                    {% for transaction in transactions %}
+                    <tr>
+                        <td>{{transaction.id}}</td>
+                        <td>{{transaction.transaction_number}}</td>
+                        <td>{{transaction.date|date}}</td>
+                        <td>{{transaction.mouvement}}</td>
+                        <td>{{transaction.intervenant}}</td>
+                        <td>{{transaction.full_quantity}}</td>
+                        <td>{{transaction.user}}</td>
+                       
+                        <td>
+                           <a type="button"  href="{% url 'info_transaction' id=transaction.id %}" data-id="{{transaction.id}}" id="btn-info-transaction" class="a a-info"><span class="fa fa-info" class="a a-info"></span></a>
+
+                            <a type="button"  href="{% url 'delete_transaction' id=transaction.id %}" data-id="{{transaction.id}}" id="btn-delete-transaction" class="a a-delete"><span class="fa fa-trash" class="a a-info"></span></a>
+                           
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock content %}
+    
+    
+    
+    
+

@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}{% load static %}
+{% block title %}add new Supplier{% endblock title %}
+
+{% block content %}
+<div class="div-form-create" id="div-form-create">
+    <h3>Form Add New Supplier</h3>
+    <form action="" method="post" class="form-create-supplier">
+        {% csrf_token %}
+        
+        {{form.as_p}}
+        <button type="submit" class="btn btn-create" >add Supplier</button>
+        <a type="button" class="btn btn-cancel" href="{% url 'list_supplier' %}">Annuler</a>
+    </form>
+</div>
+{% endblock content %}

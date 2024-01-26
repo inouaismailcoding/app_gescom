@@ -1,0 +1,37 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="brouillon.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="nav-bar">
+        <ul>
+            <li><a href="" id="">Home</a></li>
+            <li><a href="" id="">Product</a></li>
+            <li><a href="" id="">Profile</a></li>
+            <li id="group"><a href="" id="group">Group</a>
+                <ul id="sgroup">
+                    <li><a href="" id="">group 1</a></li>
+                    <li><a href="" id="">group 2</a></li>
+                    <li><a href="" id="">group 3</a></li>
+                </ul>
+            </li>
+            <li><a href="" id="">Dashboard</a></li>
+            <li><a href="" id="">others</a></li>
+        </ul>
+    </div>
+
+    <div>
+        <a type="button"  href="{% url 'info_customer' id=customer.id %}" data-id="{{customer.id}}" id="btn-info-customer" class="a a-info"><span class="fa fa-info" class="a a-info"></span></a>
+
+                            
+                            <a type="button"  href="{% url 'delete_customer' id=customer.id %}" data-id="{{customer.id}}" id="btn-delete-customer" class="a a-delete"><span class="fa fa-trash" class="a a-info"></span></a>
+    </div>
+
+
+    <script src="./static/jquery.min.js"><customer
+    <script src="brouillon.js"></script>
+</body>
+</html>

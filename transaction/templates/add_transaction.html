@@ -1,0 +1,82 @@
+{% extends 'layout.html' %}{% load static %}
+
+{% block title %}create Sale{% endblock title %}
+
+
+{% block content %}
+    <h1>Page de Transaction</h1>
+    <hr><hr>
+    <select name="select_mouvement" id="select_mouvement">
+        <option value="">---------</option>
+        {% for mouvement in mouvements %}
+        <option value="{{mouvement.id}}">{{mouvement.mouvement}}</option>
+        {% endfor %}
+    </select>
+    <select name="select_intervenant" id="select_intervenant">
+        <option value="">---------</option>
+        {% for intervenant in intervenants %}
+        <option value="{{intervenant.id}}">{{intervenant.intervenant}}</option>
+        {% endfor %}
+    </select>
+    <button type="button" id="modal-choice">Selectionner un Intervenant</button>
+    <div class="content-data">
+        <div class="content-data-table">
+            <table class="table-items" id="table-items">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Category</th>
+                        <th>Article</th>
+                        <th>Package</th>
+                        <th>Quantity</th>
+                        <th>Options</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody">
+                    <tr>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="content-data-form">
+            <!--  Formulaire de vente -->
+            <form action="{% url 'add_transaction' %}" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="intervenant" id="id_intervenant" value="1">
+                <input type="hidden" name="mouvement"  
+                id="id_mouvement">
+                <input type="hidden" name="full_quantity"  
+                id="id_full_quantity">
+                <div id="form-data-lines">
+                    <!-- Les lignes de facture seront ajoutées ici -->
+                </div>
+                <button type="submit" class="btn btn-create">Enregistrer la Vente</button>
+            </form>
+            <!--  Formulaire Detail Achat -->
+            <form action="" method="post" id="form-items">
+                <label for="id_category">Category :</label>
+                <select name="category" id="id_category">
+                    <option value="" selected>-------</option>
+                    {% for category in categorys %}
+                        <option value="{{category.id}}">{{category.category}}</option>
+                    {% endfor %}
+
+                </select><br>
+                <label for="id_article">Article :</label>
+                <select name="article" id="id_article">
+                </select><br>
+                <label for="id_package">Package :</label>
+                <select name="package" id="id_package">
+                </select><br>
+                  <label for="id_quantity">Quantity:</label><br>
+                  <input type="number" name="quantity" id="id_quantity"><br>
+                  
+                <button type="button" class="btn btn-create" id="btn-form-items">ajouter ligne</button>
+            </form>
+        </div>
+    </div>
+
+{% endblock content %}
+    
+    

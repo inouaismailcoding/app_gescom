@@ -1,0 +1,41 @@
+{% extends 'layout.html' %}{% load static %}
+{% block title %}delete Intervenant reference N° : {{intervenant.intervenant_number}}{% endblock title %}
+
+{% block content %}
+<div class="information-delete">
+    <div class="description">
+        <h3>voulez supprimer le Client {{intervenant.intervenant_number}} ?!</h3>
+               
+               <div>
+               <p style="border: 1px solid gray; width: 25%; padding:10px;">
+<small>
+    Intervenant : {{intervenant.intervenant}}<br>reference Intervenant : {{intervenant.intervenant_number}} <br>
+    Matricule : {{intervenant.matricule}}<br>
+    Direction : {{intervenant.direction}}<br>
+    Departement : {{intervenant.dept}}<br>
+    Poste Occupé : {{intervenant.post_occuped}}
+    <br>
+    Phone : {{intervenant.phone}}<br>
+    Email : {{intervenant.mail}}
+    <br>
+    Country : {{intervenant.town.country}}
+    <br>
+    Town : {{intervenant.town}}
+</small>
+               </p>
+               </div>
+                   
+           <span>Cette Action est Irreversible !!</span>
+     
+        
+        <form action="" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-delete">Supprimer</button>
+            <a type="button" class="btn btn-cancel" href="{% url 'list_intervenant' %}">Annuler</a>
+        </form>
+    </div>
+</div>
+    
+{% endblock content %}
+    
+    

@@ -1,0 +1,65 @@
+{% extends 'layout.html' %}{% load static %}
+
+{% block title %}report_transaction{% endblock title %}
+    
+{% block content %}
+<div class="content">
+    <h1>Download Report Transaction Page</h1>
+    <div class="divider" style="width: 50%;"></div>
+    <div class="divider" style="width: 50%;"></div>            
+        <h1 style="font-size: 18px;text-align: left;padding: 5px;">Select Detail reports</h1>    
+    <div class="divider" style="width: 50%;"></div>
+    <div class="divider" style="width: 50%;"></div>
+    <div class="d-flex">
+        
+    </div>
+    <form action="{% url 'report_transaction'  %}" class="form-report" method='post'>
+        {% csrf_token %}
+        <div class="div-date">
+            <h3>Selection Date</h3>
+            <label for="date_begin" class="label-date">From</label>
+            <input type="date" name="date_begin" id="date_begin">
+            <label for="date_end" class="label-date">To</label>
+            <input type="date" name="date_end" id="date_end">
+        </div>
+        <div class="div-category">
+            <label for="category" class="label label-select">category</label>
+            <select name="category" id="id_category" class="select">
+                <option value="">-------</option>
+                {% for category in categorys %}
+                <option value="{{category.id}}">{{category.category}}</option>{% endfor %}
+            </select>
+        </div>
+        <div class="div-intervenant">
+            <label for="intervenant" class="label label-select">intervenant</label>
+            <select name="intervenant" id="id_intervenant" class="select">
+                <option value="">-------</option>
+                {% for intervenant in intervenants %}
+                <option value="{{intervenant.id}}">{{intervenant.intervenant}}</option>{% endfor %}
+            </select>
+        </div>
+        <div class="div-article">
+            <label for="article" class="label label-select">article</label>
+            <select name="article" id="id_article" class="select">
+                <option value="">-------</option>
+                {% for article in articles %}
+                <option value="{{article.id}}">{{article.article}}</option>{% endfor %}
+            </select>
+        </div>
+        <div class="div-package">
+            <label for="package" class="label label-select">package</label>
+            <select name="package" id="id_package" class="select">
+                <option value="">-------</option>
+                {% for package in packages %}
+                <option value="{{package.id}}">{{package.package}}</option>{% endfor %}
+            </select>
+        </div>
+
+        <button class="btn btn-report" type="submit"> Report</button>
+
+    </form>
+    
+   
+</div>
+{% endblock content %}
+    

@@ -1,0 +1,36 @@
+{% extends 'layout.html' %} {% load static %}
+
+{% block title %} info intervenant ref : {{intervenant.intervenant_number}}{% endblock title %}
+
+{% block content %}
+<h2>Information customer reference N°: <b>{{intervenant.intervenant_number}}</b></h2> 
+<div class="div-info">
+    <div class="div-info-ul">  
+        <p style="border: 1px solid gray; width: 25%; padding:10px;margin:10px">
+        <small>
+            Intervenant : {{intervenant.intervenant}}<br>reference Intervenant : {{intervenant.intervenant_number}} <br>
+            Matricule : {{intervenant.matricule}}<br>
+            Direction : {{intervenant.direction}}<br>
+            Departement : {{intervenant.dept}}<br>
+            Poste Occupé : {{intervenant.post_occuped}}
+            <br>
+            Phone : {{intervenant.phone}}<br>
+            Email : {{intervenant.mail}}
+            <br>
+            Country : {{intervenant.town.country}}
+            <br>
+            Town : {{intervenant.town}}
+        </small><br><br>
+        <a href="{% url 'info_intervenant' id=intervenant.id %}" class="btn btn-info"><span class="fa fa-info"></span></a>
+        <a href="{% url 'edit_intervenant' id=intervenant.id %}" class="btn btn-edit"><span class="fa fa-edit"></span></a>
+        <a href="{% url 'delete_intervenant' id=intervenant.id %}" class="btn btn-delete"><span class="fa fa-trash"></span></a>
+        </p>               
+    </div>
+        
+
+</div>   
+
+
+{% endblock content %}
+    
+    

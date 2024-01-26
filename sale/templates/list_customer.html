@@ -1,0 +1,94 @@
+{% extends 'layout.html' %} {% load static %}
+{% block title %}list_customer{% endblock title %}
+{% block content %}
+    
+    <div class="content">
+        <h1>PAGE DES CLIENTS</h1>  
+        {% if messages %}
+        <div class="message">
+            {% for message in messages %}
+                <span>{{message}}</span>
+            {% endfor %}
+        </div>
+        {% endif %}
+         <div class="divider"></div>
+         <div class="divider"></div>   
+        <a class="btn" href="{% url 'add_customer' %}" type="Button">create customer</a>
+         <div class="divider"></div>
+         <div class="divider"></div>   
+        
+        <div class="content-table">
+            <div class="d-flex">
+                <div>
+                        
+                    <input type="search" name="search" id="search" class="input input-search">
+                    <a href=""><span class="fa fa-search span span-search" btn-search></span></a>
+                </div>
+                <div class="div-type-file-download right">
+                    <form action="" method="get" class="form" id="form-select-type-file-download">
+                        {% csrf_token %}
+                   <label for="" class="label label-select">choose file to download</label>
+                   <select name="format" id="select-type-download-file" class="select select-type-download-file">
+                       <option value="">----- </option>
+                       <option value="excel"><span class="fa fa-file-excel span"></span>Excel File</option>
+                       <option value="csv"><span class="fa fa-file-csv span"></span>CSV File</option>
+                       <option value="json"><span class="fa fa-file-Json span"></span>JSON File</option>
+                   </select>
+                   <span class="fa fa-file-excel span span-file"></span>
+                    <span class="fa fa-file-csv span span-file"></span>
+                    <span class="fa fa-file-pdf span span-file"></span>
+                   <div>
+                       <button href="" class="a download download-type-file" id="download" type="submit" style="display:none;"><span class="fa fa-download span" ></span>download <i id="download-type"></i></button>
+                   </div>
+                    </form>
+                   
+                </div>
+            </div>
+            <table class="table" id="table">
+                <thead class="thead">
+                    <tr>
+                        <th>#</th>
+                        <th>ref customer</th>
+                        <th>customer</th>
+                        <th>nui</th>
+                        <th>rc</th>
+                        <th>phone</th>
+                        <th>mail</th>
+                        <th>country</th>
+                        <th>town</th>
+                        <th>User</th>
+                        <th>Options</th>
+                        <!--<th>Image</th>-->
+                    </tr>
+                </thead>
+                <tbody class="tbody" id="tbody">
+                    {% for customer in customers %}
+                    <tr>
+                        <td>{{customer.id}}</td>
+                        <td>{{customer.customer_number}}</td>
+                        <td>{{customer.customer}}</td><td>{{customer.nui}}</td>
+                        <td>{{customer.rc}}</td>
+                        <td>{{customer.phone}}</td>
+                        <td>{{customer.mail}}</td>
+                        <td>{{customer.country}}</td>
+                        <td>{{customer.town}}</td>
+                        <td>{{customer.user}}</td>
+                       
+                        <td>
+                            <a type="button" data-id="{{customer.id}}" id="btn-show-row-customer" href="{% url 'edit_customer' id=customer.id %}" class="a a-edit"><span class="fa fa-edit" class="a a-info"></span></a>
+                            <a type="button"  href="{% url 'info_customer' id=customer.id %}" data-id="{{customer.id}}" id="btn-info-customer" class="a a-info"><span class="fa fa-info" class="a a-info"></span></a>
+
+                            
+                            <a type="button"  href="{% url 'delete_customer' id=customer.id %}" data-id="{{customer.id}}" id="btn-delete-customer" class="a a-delete"><span class="fa fa-trash" class="a a-info"></span></a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock content %}
+    
+    
+    
+    

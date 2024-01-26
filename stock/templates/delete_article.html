@@ -1,0 +1,32 @@
+{% load static %}
+{% block title %}delete Article reference N° : {{article.article_number}}{% endblock title %}
+
+{% block content %}
+<div class="information-delete">
+    <div class="description">
+        <h3>voulez supprimer l'article {{article.article_number}} ?!</h3>
+               
+               <div>
+                {% if article.img_article %}
+               <img src="{{article.img_article.url}}" alt="" width="80" height="80">  
+               {% endif %}
+               <p style="border: 1px solid gray; width: 25%; padding:10px;">
+                   article : {{article.article}}<br>reference article : {{article.article_number}} <br>
+                   prix Unitaire : {{article.price}} fcfa
+               </p>
+               </div>
+                   
+           <span>Cette Action est Irreversible !!</span>
+     
+        
+        <form action="" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-delete">Supprimer</button>
+            <a type="button" class="btn btn-cancel" href="{% url 'list_article' %}">Annuler</a>
+        </form>
+    </div>
+</div>
+    
+{% endblock content %}
+    
+    

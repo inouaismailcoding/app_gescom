@@ -1,0 +1,39 @@
+{% extends 'layout.html' %}{% load static %}
+{% block title %}delete Customer reference N° : {{customer.customer_number}}{% endblock title %}
+
+{% block content %}
+<div class="information-delete">
+    <div class="description">
+        <h3>voulez supprimer le Client {{customer.customer_number}} ?!</h3>
+               
+               <div>
+               <p style="border: 1px solid gray; width: 25%; padding:10px;">
+<small>
+    Supplier : {{customer.customer}}<br>reference Supplier : {{customer.customer_number}} <br>
+    N° Identifiant Unique : {{customer.nui}}<br>
+    Registre Commerce : {{customer.rc}}
+    <br>
+    Phone : {{customer.phone}}<br>
+    Email : {{customer.mail}}
+    <br>
+    Country : {{customer.country}}
+    <br>
+    Town : {{customer.town}}
+</small>
+               </p>
+               </div>
+                   
+           <span>Cette Action est Irreversible !!</span>
+     
+        
+        <form action="" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-delete">Supprimer</button>
+            <a type="button" class="btn btn-cancel" href="{% url 'list_customer' %}">Annuler</a>
+        </form>
+    </div>
+</div>
+    
+{% endblock content %}
+    
+    

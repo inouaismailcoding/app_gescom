@@ -1,0 +1,41 @@
+<html lang="en">{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'fontawesome-free-5.15.4/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/shim.min.js" ></script>
+    <title>{% block title %}{% endblock title %}</title>
+</head>
+<body class="container">
+    <div class="navbar">
+        
+        
+        
+        <ul class="list">
+            <li><span class="icon">I&I Coding</span></li>
+            <li><a href="{% url 'welcome' %}">welcome</a></li>
+            <li><a href="{% url 'list_category' %}">list Category</a></li>
+            <li><a href="{% url 'list_package' %}">list Package</a></li>
+            <li><a href="{% url 'list_article' %}">list Article</a></li>
+            <li><a href="{% url 'list_supplier' %}">list Supplier</a></li>
+            <li><a href="{% url 'list_purchase' %}">list Purchase</a></li>
+            <li><a href="{% url 'list_customer' %}">list Customer</a></li>
+            <li><a href="{% url 'list_sale' %}">list Sale</a></li>
+            <li><a href="{% url 'list_intervenant' %}">list intervenant</a></li>
+            <li><a href="{% url 'list_transaction' %}">list Transaction</a></li>
+            <li><a href="{% url 'report_transaction' %}">report_transaction</a></li>
+        </ul>
+    </div>
+{% block content %}{% endblock content %}
+
+
+<script src="{% static 'jquery.min.js' %}"></script>
+
+<script>
+    </script>
+<script src="{% static 'script.js' %}"></script>
+<script src="{% static 'xlsx.full.js' %}"></script>
+
+</body>
+</html>

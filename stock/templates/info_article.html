@@ -1,0 +1,31 @@
+{% extends 'layout.html' %} {% load static %}
+
+{% block title %}info Article{% endblock title %}
+
+{% block content %}
+<h2>Information Article reference N°: <b>{{article.article_number}}</b></h2> 
+<div class="div-info">
+    <div class="div-info-ul">  
+        {% if article.img_article %}
+        <img src="{{article.img_article.url}}" alt="" width="60" height="60">   
+        {% endif %}
+        <p style="border: 1px solid gray; width: 25%; padding:10px;">
+        <small>
+        Article : {{article.article}} <br>
+        Reference Article : {{article.article_number}} <br>
+        Prix Unitaire : {{article.price}} fcfa  <br>
+        Emballage  : {{article.package}}
+        </small>
+        <a href="{% url 'info_article' id=article.id %}" class="btn btn-info"><span class="fa fa-info"></span></a>
+        <a href="{% url 'edit_article' id=article.id %}" class="btn btn-edit"><span class="fa fa-edit"></span></a>
+        <a href="{% url 'delete_article' id=article.id %}" class="btn btn-delete"><span class="fa fa-trash"></span></a>
+        </p>               
+    </div>
+        
+
+</div>   
+
+
+{% endblock content %}
+    
+    

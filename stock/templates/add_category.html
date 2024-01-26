@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}{% load static %}
+
+
+{% block title %}list Category{% endblock title %}
+
+
+{% block content %}
+<div class="div-form-create" id="div-form-create">
+    <h3>Form Add New Category</h3>
+    <form action="" method="post" enctype="multipart/form-data" class="form-create-category">
+        {% csrf_token %}
+        
+        {{form.as_p}}
+        <button type="submit" class="btn btn-create" >add Category</button>
+        <a type="button" class="btn btn-cancel" href="{% url 'list_category' %}">Annuler</a>
+    </form>
+</div>
+{% endblock content %}

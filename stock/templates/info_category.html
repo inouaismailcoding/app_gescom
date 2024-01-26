@@ -1,0 +1,51 @@
+{% extends 'layout.html' %} {% load static %}
+
+{% block title %}info category {{category.id}}{% endblock title %}
+
+{% block content %}
+<h2>INformation Categorie id N°: <b>{{category.id}}</b></h2> 
+<div class="div-info">
+    <div>
+        <h4>Nom : <b>{{category.category}}</b></h4>
+    {% if category.category %}
+    <img src="{{category.image.url}}" alt="" height="80" width="80">  
+    {% endif %}
+    </div>
+    <div class="div-info-ul" >
+        {% if articles %}
+        <ul class="ul-list_article">
+            {% for article in articles %}
+            <li>
+                {% if article.img_article %}
+                <img src="{{article.img_article.url}}" alt="" width="60" height="60">   
+                {% endif %}
+                <p style="border: 1px solid gray; width: 25%; padding:10px;">
+                <small>
+                Article : {{article.article}} <br>
+                Reference Article : {{article.article_number}} <br>
+                Prix Unitaire : {{article.price}} fcfa  <br>
+                Emballage  : {{article.package}}
+                </small>
+                <a href="{% url 'info_article' id=article.id %}" class="btn btn-info"><span class="fa fa-info"></span></a>
+                <a href="{% url 'edit_article' id=article.id %}" class="btn btn-edit"><span class="fa fa-edit"></span></a>
+                <a href="{% url 'delete_article' id=article.id %}" class="btn btn-delete"><span class="fa fa-trash"></span></a>
+                </p>
+                    
+            </li>{% endfor %}
+        </ul>
+        {% else %}
+            <div style="padding: 20px;">
+                <p>lorem</p>
+            </div>
+            <a href="{% url 'info_category' id=category.id %}" class="btn btn-info">Revenir en arriere</a>
+            <a href="{% url 'list_category' %}" class="btn btn-cancel">Vers liste category</a>
+        {% endif %}
+    </div>
+        
+
+</div>   
+
+
+{% endblock content %}
+    
+    

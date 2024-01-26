@@ -1,0 +1,19 @@
+{% extends 'layout.html' %}{% load static %}
+
+{% block title %}edit Intervenant Ref N°: {{instance.intervenant_number}} {% endblock title %}
+
+
+
+{% block content %}
+<div class="div-form-edit" id="div-form-edit">
+    <h3>Form Edit Intervenant Ref N° : <span class="" id="article_name">{{instance.intervenant_number}}</span></h3>
+        
+    <form action="" method="POST"  class="form-edit-intervenant" id="form-edit-intervenant">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit" class="btn btn-edit">edit Intervenant</button><a type="button" class="btn btn-cancel" href="{% url 'list_intervenant' %}">Annuler</a>
+    </form>
+</div>
+{% endblock content %}
+    
+    

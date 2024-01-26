@@ -1,0 +1,39 @@
+{% load static %}
+{% block title %}delete Package N° : {{package.id}}{% endblock title %}
+
+{% block content %}
+<div class="information-delete">
+    <div class="description">
+        <h3>voulez supprimer l'emballage {{package.package}} ?!</h3>
+       
+       {% if articles %}
+       <span>Cela entrainera la suppression des articles suivants :</span>
+       <ul>
+           {% for article in articles %}
+           <li>
+               
+               {% if article.img_article %}
+               <img src="{{article.img_article.url}}" alt="">  
+               {% endif %}
+               <p style="border: 1px solid gray; width: 25%; padding:10px;">
+                   article : {{article.article}}<br>reference article : {{article.article_number}} <br>
+                   prix Unitaire : {{article.price}} fcfa
+               </p>
+                   
+           </li>
+           {% endfor %}
+       </ul>
+        
+       {% endif %}
+        
+        <form action="" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-delete">Supprimer</button>
+            <a type="button" class="btn btn-cancel" href="{% url 'list_package' %}">Annuler</a>
+        </form>
+    </div>
+</div>
+    
+{% endblock content %}
+    
+    

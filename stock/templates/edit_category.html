@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}{% load static %}
+
+{% block title %}edit Category N°: {{instance.id}} {% endblock title %}
+
+
+
+{% block content %}
+<div class="div-form-edit" id="div-form-edit">
+    <h3>Form Edit Category <span class="" id="category_name">{{instance.category}}</span></h3>
+    
+    {% if instance.image %}
+    <img src="{{instance.image.url}}" alt="" width="50" height="50" id="img" >
+    {% endif %}
+        
+    <form action="" method="POST" enctype="multipart/form-data" class="form-edit-category" id="form-edit-category">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit" class="btn btn-edit">edit Category</button><a type="button" class="btn btn-cancel" href="{% url 'list_category' %}">Annuler</a>
+    </form>
+</div>
+{% endblock content %}
+    
+    

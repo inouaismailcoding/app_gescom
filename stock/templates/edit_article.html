@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}{% load static %}
+
+{% block title %}edit Article N°: {{instance.article_number}} {% endblock title %}
+
+
+
+{% block content %}
+<div class="div-form-edit" id="div-form-edit">
+    <h3>Form Edit Article Reference N° : <span class="" id="article_name">{{instance.article_number}}</span></h3>
+    
+    {% if instance.image %}
+    <img src="{{instance.image.url}}" alt="" width="50" height="50" id="img" >
+    {% endif %}
+        
+    <form action="" method="POST" enctype="multipart/form-data" class="form-edit-article" id="form-edit-article">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit" class="btn btn-edit">edit Article</button><a type="button" class="btn btn-cancel" href="{% url 'list_article' %}">Annuler</a>
+    </form>
+</div>
+{% endblock content %}
+    
+    

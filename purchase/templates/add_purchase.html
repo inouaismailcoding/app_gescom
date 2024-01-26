@@ -1,0 +1,71 @@
+{% extends 'layout.html' %}{% load static %}
+
+{% block title %}add purchase{% endblock title %}
+
+
+{% block content %}
+    <h1>Page d'achat</h1>
+    <hr><hr>
+    <button type="button" id="modal-choice">Selectionner un Fournisseur</button>
+    <div class="content-data">
+        <div class="content-data-table">
+            <table class="table-items" id="table-items">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Category</th>
+                        <th>Article</th>
+                        <th>Package</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Amount</th>
+                        <th>Options</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody">
+                    <tr>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="content-data-form">
+            <!--  Formulaire d'achat -->
+            <form action="{% url 'add_purchase' %}" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="supplier" id="id_supplier" value="1">
+                <input type="hidden" name="amount" step="any" 
+                id="id_amount">
+                <div id="form-data-lines">
+                    <!-- Les lignes de facture seront ajoutées ici -->
+                </div>
+                <button type="submit" class="btn btn-create">Enregistrer l'achat</button>
+            </form>
+            <!--  Formulaire Detail Achat -->
+            <form action="" method="post" id="form-items">
+                <label for="id_category">Category :</label>
+                <select name="category" id="id_category">
+                    <option value="" selected>-------</option>
+                    {% for category in categorys %}
+                        <option value="{{category.id}}">{{category.category}}</option>
+                    {% endfor %}
+
+                </select><br>
+                <label for="id_article">Article :</label>
+                <select name="article" id="id_article">
+                </select><br>
+                <label for="id_package">Package :</label>
+                <select name="package" id="id_package">
+                </select><br>
+                  <label for="id_quantity">Quantity:</label><br>
+                  <input type="number" name="quantity" id="id_quantity"><br>
+                  <label for="id_price">Price:</label><input type="number" name="price" step="0.01" id="id_price"><br>
+                  <label for="id_total">Amount:</label><input type="number" name="amount" step="0.01" id="id_total"><br>
+                <button type="button" class="btn btn-create" id="btn-form-items">ajouter ligne</button>
+            </form>
+        </div>
+    </div>
+
+{% endblock content %}
+    
+    
